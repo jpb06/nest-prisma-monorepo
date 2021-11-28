@@ -1,15 +1,9 @@
-import * as dotEnv from 'dotenv-flow';
+require('dotenv-flow').config({ silent: true });
 
 import { bootstrap } from '@libs/boostraper';
 
+import { AppModule } from './modules/app.module';
 import { externalDatabasesClients } from './modules/databases/external-databases-clients';
-
-dotEnv.config({
-  silent: true,
-});
-
-// We need to load .env vars before loading the appModule
-const AppModule = require('./modules/app.module').AppModule;
 
 void (async (): Promise<void> => {
   const app = await bootstrap(
