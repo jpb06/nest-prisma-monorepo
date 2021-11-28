@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("PROJECTS_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma/db-projects"
+}
+
+model Project {
+  id   Int    @id @default(autoincrement())
+  name String
+  Repo Repo[]
+}
+
+model Repo {
+  id           Int            @id @default(autoincrement())
+  idProject    Int
+  name         String
+  repoUrl      String
+  Project      Project?       @relation(fields: [idProject], references: [id])
+  Contribution Contribution[]
+}
+
+model Contribution {
+  id     Int      @id @default(autoincrement())
+  idDev  Int
+  idRepo Int      @map("Repo")
+  date   DateTime
+  Repo   Repo?    @relation(fields: [idRepo], references: [id])
+}

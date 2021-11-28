@@ -1,0 +1,30 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("HIKING_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma/db-hiking"
+}
+
+model Trail {
+  id       Int       @id @default(autoincrement())
+  name     String
+  Sessions Session[]
+}
+
+model Session {
+  id           Int                  @id @default(autoincrement())
+  idTrail      Int                  @map("Trail")
+  date         DateTime
+  Participants SessionParticipant[]
+  Trail        Trail?               @relation(fields: [idTrail], references: [id])
+}
+
+model SessionParticipant {
+  id        Int      @id @default(autoincrement())
+  idDev     Int
+  idSession Int      @map("Session")
+  Session   Session? @relation(fields: [idSession], references: [id])
+}
