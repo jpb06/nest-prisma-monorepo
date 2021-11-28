@@ -1,0 +1,129 @@
+root: true
+
+parser: '@typescript-eslint/parser'
+
+parserOptions:
+  project: ./tsconfig.json
+  sourceType: module
+
+plugins:
+  - '@typescript-eslint/eslint-plugin'
+  - prettier
+  - import
+  - jest
+
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:prettier/recommended
+  - plugin:import/typescript
+  - plugin:jest/recommended
+  - plugin:jest/style
+
+env:
+  jest: true
+  node: true
+
+rules:
+  '@typescript-eslint/await-thenable': error
+  '@typescript-eslint/explicit-module-boundary-types': off
+  '@typescript-eslint/explicit-function-return-type': error
+  '@typescript-eslint/explicit-member-accessibility': off
+  '@typescript-eslint/indent': off
+  '@typescript-eslint/interface-name-prefix': off
+  '@typescript-eslint/member-delimiter-style': off
+  '@typescript-eslint/member-ordering': error
+  '@typescript-eslint/no-confusing-non-null-assertion': error
+  '@typescript-eslint/no-empty-interface': off
+  '@typescript-eslint/no-explicit-any': error
+  '@typescript-eslint/no-extra-non-null-assertion': error
+  '@typescript-eslint/no-floating-promises':
+    - error
+    - ignoreVoid: true
+  '@typescript-eslint/no-non-null-assertion': error
+  '@typescript-eslint/no-use-before-define': off
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - argsIgnorePattern: '^_'
+  '@typescript-eslint/no-var-requires': off
+  '@typescript-eslint/switch-exhaustiveness-check': error
+  array-bracket-newline:
+    - error
+    - consistent
+  array-bracket-spacing:
+    - error
+    - never
+  array-callback-return: error
+  block-spacing:
+    - error
+  brace-style: error
+  camelcase:
+    - off
+    - properties: never
+  complexity: error
+  computed-property-spacing:
+    - error
+    - never
+  curly:
+    - error
+    - all
+  default-case: off
+  default-case-last: off
+  dot-location:
+    - error
+    - property
+  dot-notation: error
+  eqeqeq: error
+  eol-last: error
+  func-call-spacing:
+    - error
+    - never
+  func-style: error
+  import/no-unresolved: off
+  import/order:
+    - error
+    - newlines-between: always
+      groups:
+        - builtin
+        - external
+        - internal
+        - [parent, sibling, index]
+      alphabetize:
+        order: 'asc'
+      pathGroups:
+        - pattern: '@nestjs/**'
+          group: external
+        - pattern: '{@apps/**,@libs/**}'
+          group: internal
+          position: before
+      pathGroupsExcludedImportTypes:
+        - builtin
+  jest/no-conditional-expect: off
+  key-spacing: error
+  keyword-spacing: error
+  lines-between-class-members: error
+  newline-per-chained-call: off
+  no-console:
+    - error
+    - allow:
+        - warn
+        - error
+  no-dupe-keys: error
+  no-else-return: error
+  no-implicit-coercion: error
+  no-invalid-this: error
+  no-lonely-if: error
+  no-multi-spaces: error
+  no-return-await: error
+  no-trailing-spaces: error
+  no-useless-return: error
+  no-unneeded-ternary: error
+  prefer-arrow-callback:
+    - error
+  prefer-const: error
+  prettier/prettier:
+    - error
+  template-curly-spacing:
+    - error
+    - never
+  valid-typeof: error
