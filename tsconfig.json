@@ -38,7 +38,9 @@
       "@libs/decorators": ["libs/decorators/src"],
       "@libs/decorators/*": ["libs/decorators/src/*"],
       "@libs/rxjs": ["libs/rxjs/src"],
-      "@libs/rxjs/*": ["libs/rxjs/src/*"]
+      "@libs/rxjs/*": ["libs/rxjs/src/*"],
+      "@libs/tests": ["libs/tests/src"],
+      "@libs/tests/*": ["libs/tests/src/*"]
     }
   }
 }

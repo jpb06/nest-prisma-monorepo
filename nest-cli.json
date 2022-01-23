@@ -58,6 +58,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/rxjs/tsconfig.lib.json"
       }
+    },
+    "tests": {
+      "type": "library",
+      "root": "libs/tests",
+      "entryFile": "index",
+      "sourceRoot": "libs/tests/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/tests/tsconfig.lib.json"
+      }
     }
   }
 }
