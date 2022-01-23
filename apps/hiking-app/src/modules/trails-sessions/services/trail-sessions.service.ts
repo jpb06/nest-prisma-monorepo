@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { plainToClass } from 'class-transformer';
+import { plainToInstance } from 'class-transformer';
 import { from, map, mergeMap, Observable, toArray } from 'rxjs';
 
 import { HikingRepositoryService } from '../../databases/repositories/hiking-repository.service';
@@ -23,7 +23,7 @@ export class TrailsSessionsService {
         return from(sessions).pipe(
           map((session) => this.users.applyUsersTo(session, users$)),
           mergeMap((l) => l),
-          map((o) => plainToClass(TrailSessionResponseDto, o)),
+          map((o) => plainToInstance(TrailSessionResponseDto, o)),
           toArray(),
         );
       }),

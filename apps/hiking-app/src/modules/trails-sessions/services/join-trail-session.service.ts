@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/db-users';
-import { plainToClass } from 'class-transformer';
+import { plainToInstance } from 'class-transformer';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
 
 import {
@@ -32,7 +32,7 @@ export class JoinTrailSessionService {
         this.throwIfAlreadyInSession(idDev, session).pipe(
           mergeMap((_) => this.addUserToSession(session, idDev)),
           mergeMap((s) => this.users.applyUsersTo(s, of(users))),
-          map((o) => plainToClass(TrailSessionResponseDto, o)),
+          map((o) => plainToInstance(TrailSessionResponseDto, o)),
         ),
       ),
     );

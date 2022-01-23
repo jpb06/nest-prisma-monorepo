@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/db-users';
-import { plainToClass } from 'class-transformer';
+import { plainToInstance } from 'class-transformer';
 import {
   distinct,
   from,
@@ -45,7 +45,7 @@ export class ProjectsContributionsService {
                 dev,
                 repo: contrib.Repo,
               })),
-              map((o) => plainToClass(ProjectContributionsDto, o)),
+              map((o) => plainToInstance(ProjectContributionsDto, o)),
             ),
           ),
           mergeAll(),
