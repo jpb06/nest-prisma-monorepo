@@ -19,6 +19,7 @@
     "prisma:migrate:users": "prisma migrate dev --schema prisma/users/users-schema.prisma",
     "prisma:migrate:projects": "prisma migrate dev --schema prisma/projects/projects-schema.prisma",
     "prisma:migrate:hiking": "prisma migrate dev --schema prisma/hiking/hiking-schema.prisma",
+    "postinstall": "yarn prisma:gen",
     "docker": "docker compose down && docker compose up postgres",
     "db:seed": "prisma db seed",
     "dev": "nest start --watch",
@@ -78,7 +79,7 @@
   },
   "engines": {
     "node": "16.x",
-    "yarn": "1.x"
+    "yarn": "1.22.x"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
