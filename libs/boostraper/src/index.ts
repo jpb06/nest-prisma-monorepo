@@ -1,6 +1,8 @@
-import { INestApplication, ValidationPipe } from '@nestjs/common';
+import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+
+import { registerGlobals } from './register-globals';
 
 export const bootstrap = async (
   appModule: unknown,
@@ -10,14 +12,8 @@ export const bootstrap = async (
   serviceVersion = '1.0',
 ): Promise<INestApplication> => {
   const app = await NestFactory.create(appModule);
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      forbidUnknownValues: true,
-    }),
-  );
+
+  registerGlobals(app);
 
   const config = new DocumentBuilder()
     .setTitle(serviceTitleInSwagger)
