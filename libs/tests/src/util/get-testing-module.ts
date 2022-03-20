@@ -3,12 +3,16 @@ import {
   ForwardReference,
   INestApplication,
   Type,
-  ValidationPipe,
 } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { mockDeep } from 'jest-mock-extended';
 
-import { HikingDatabaseClient, UsersDatabaseClient } from '@libs/databases';
+import { registerGlobals } from '@libs/boostraper/register-globals';
+import {
+  HikingDatabaseClient,
+  ProjectsDatabaseClient,
+  UsersDatabaseClient,
+} from '@libs/databases';
 
 type NestModule =
   | Type<unknown>
@@ -20,6 +24,7 @@ type NestModule =
 export const getTestingModule = (modules: NestModule[]) => {
   const hikingDbMock = mockDeep<HikingDatabaseClient>();
   const usersDbMock = mockDeep<UsersDatabaseClient>();
+  const projectsDbMock = mockDeep<ProjectsDatabaseClient>();
 
   const initializeTestApplication = async (): Promise<INestApplication> => {
     const module = await Test.createTestingModule({
@@ -29,14 +34,22 @@ export const getTestingModule = (modules: NestModule[]) => {
       .useValue(hikingDbMock)
       .overrideProvider(UsersDatabaseClient)
       .useValue(usersDbMock)
+      .overrideProvider(ProjectsDatabaseClient)
+      .useValue(projectsDbMock)
       .compile();
 
     const app = module.createNestApplication();
-    app.useGlobalPipes(new ValidationPipe());
+    registerGlobals(app);
+
     await app.init();
 
     return app;
   };
 
-  return { initializeTestApplication, hikingDbMock, usersDbMock };
+  return {
+    initializeTestApplication,
+    hikingDbMock,
+    usersDbMock,
+    projectsDbMock,
+  };
 };
