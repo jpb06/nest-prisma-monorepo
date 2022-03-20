@@ -27,7 +27,7 @@ module.exports = {
     '.module.ts',
     'database.client.ts',
     '.dto.ts',
-    '.types.ts',
+    '.type.ts',
     'prisma/',
   ],
   setupFiles: ['dotenv-flow/config'],
