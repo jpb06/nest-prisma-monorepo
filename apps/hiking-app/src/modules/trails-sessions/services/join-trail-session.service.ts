@@ -61,7 +61,7 @@ export class JoinTrailSessionService {
     session: SessionSelectType,
   ): Observable<SessionSelectType> =>
     session.Participants.find((el) => el.idDev === idDev)
-      ? conflictError('User already in sesion')
+      ? conflictError('User already in session')
       : of(session);
 
   private addUserToSession = (
@@ -69,7 +69,11 @@ export class JoinTrailSessionService {
     idDev: number,
   ): Observable<SessionSelectType> =>
     this.hiking.joinTrailSession(idDev, session.id as number).pipe(
-      catchError((_) => internalServerError('Oh no!')),
+      catchError((_) =>
+        internalServerError(
+          `An error occured while adding user ${idDev} to trail session ${session.id}`,
+        ),
+      ),
       mergeMap((_) =>
         of({
           ...session,
