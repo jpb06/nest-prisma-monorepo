@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/db-users';
-import { plainToClass } from 'class-transformer';
+import { plainToInstance } from 'class-transformer';
 import { catchError, map, mergeMap, Observable, of } from 'rxjs';
 
 import {
@@ -32,7 +32,7 @@ export class JoinTrailSessionService {
         this.throwIfAlreadyInSession(idDev, session).pipe(
           mergeMap((_) => this.addUserToSession(session, idDev)),
           mergeMap((s) => this.users.applyUsersTo(s, of(users))),
-          map((o) => plainToClass(TrailSessionResponseDto, o)),
+          map((o) => plainToInstance(TrailSessionResponseDto, o)),
         ),
       ),
     );
@@ -61,15 +61,19 @@ export class JoinTrailSessionService {
     session: SessionSelectType,
   ): Observable<SessionSelectType> =>
     session.Participants.find((el) => el.idDev === idDev)
-      ? conflictError('User already in sesion')
+      ? conflictError('User already in session')
       : of(session);
 
   private addUserToSession = (
     session: SessionSelectType,
     idDev: number,
   ): Observable<SessionSelectType> =>
-    this.hiking.joinTrailSession(idDev, session.id as number).pipe(
-      catchError((_) => internalServerError('Oh no!')),
+    this.hiking.joinTrailSession(idDev, session.id).pipe(
+      catchError((_) =>
+        internalServerError(
+          `An error occured while adding user ${idDev} to trail session ${session.id}`,
+        ),
+      ),
       mergeMap((_) =>
         of({
           ...session,

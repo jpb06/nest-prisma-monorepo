@@ -1,14 +1,8 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { Observable } from 'rxjs';
 
 import { ApiRoute } from '@libs/decorators';
+import { ParseIdPipe } from '@libs/pipes';
 
 import { JoinTrailSessionBodyDto } from './dto/join-trail-session.body.dto';
 import { TrailSessionResponseDto } from './dto/trail-session.response.dto';
@@ -43,9 +37,14 @@ export class TrailsSessionsController {
       description: 'The sessions',
       type: TrailSessionResponseDto,
     },
+    badRequest: {},
   })
   joinSession(
-    @Param('id', new ParseIntPipe()) id: number,
+    @Param(
+      'id',
+      new ParseIdPipe('Expecting an integer as param for trail session id'),
+    )
+    id: number,
     @Body() { idDev }: JoinTrailSessionBodyDto,
   ): Observable<TrailSessionResponseDto> {
     return this.join.joinSession(id, idDev);

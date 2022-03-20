@@ -8,3 +8,6 @@ export * from './hiking/selectors/session.selector';
 
 export * from './users/users-database.service';
 export * from './users/users-database.client';
+
+export * from './hiking/selectors/session.selector';
+export * from './projects/selectors/contribution.selector';

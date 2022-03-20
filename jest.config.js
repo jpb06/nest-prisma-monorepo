@@ -1,4 +1,4 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const { pathsToModuleNameMapper } = require('ts-jest');
 
 const {
   compilerOptions: { paths: tsconfigPaths },
@@ -23,12 +23,14 @@ module.exports = {
     '\\.d.ts',
     'main.ts',
     '.entity.ts',
+    'index.ts',
+    '.module.ts',
+    'database.client.ts',
     '.dto.ts',
-    '.types.ts',
+    '.type.ts',
     'prisma/',
   ],
   setupFiles: ['dotenv-flow/config'],
-  testResultsProcessor: 'jest-sonar-reporter',
   testEnvironment: 'node',
   globals: {
     'ts-jest': {

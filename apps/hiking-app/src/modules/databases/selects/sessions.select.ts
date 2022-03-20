@@ -2,7 +2,7 @@ import { Session, Trail } from '@prisma/db-hiking';
 
 import { selectSession } from '@libs/databases';
 
-export type SessionSelectType = Partial<Session> & {
+export type SessionSelectType = Omit<Session, 'idTrail'> & {
   Trail: Trail | null;
   Participants: Array<{
     idDev: number;

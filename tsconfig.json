@@ -37,8 +37,14 @@
       "@libs/databases/*": ["libs/databases/src/*"],
       "@libs/decorators": ["libs/decorators/src"],
       "@libs/decorators/*": ["libs/decorators/src/*"],
+      "@libs/filters": ["libs/filters/src"],
+      "@libs/filters/*": ["libs/filters/src/*"],
+      "@libs/pipes": ["libs/pipes/src"],
+      "@libs/pipes/*": ["libs/pipes/src/*"],
       "@libs/rxjs": ["libs/rxjs/src"],
-      "@libs/rxjs/*": ["libs/rxjs/src/*"]
+      "@libs/rxjs/*": ["libs/rxjs/src/*"],
+      "@libs/tests": ["libs/tests/src"],
+      "@libs/tests/*": ["libs/tests/src/*"]
     }
   }
 }

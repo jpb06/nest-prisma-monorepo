@@ -127,3 +127,8 @@ rules:
     - error
     - never
   valid-typeof: error
+  jest/expect-expect:
+    - error
+    - assertFunctionNames:
+        - expect
+        - request.**.expect
