@@ -68,7 +68,7 @@ export class JoinTrailSessionService {
     session: SessionSelectType,
     idDev: number,
   ): Observable<SessionSelectType> =>
-    this.hiking.joinTrailSession(idDev, session.id as number).pipe(
+    this.hiking.joinTrailSession(idDev, session.id).pipe(
       catchError((_) =>
         internalServerError(
           `An error occured while adding user ${idDev} to trail session ${session.id}`,
