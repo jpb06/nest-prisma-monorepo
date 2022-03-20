@@ -36,12 +36,12 @@ describe('TrailsSessionsController (e2e)', () => {
         .expect(200);
 
       expect(body).toStrictEqual(
-        mockedsessions.map((s) => ({
-          id: s.id,
-          date: asDateString(s.date),
-          trail: s.Trail,
+        mockedsessions.map((session) => ({
+          id: session.id,
+          date: asDateString(session.date),
+          trail: session.Trail,
           hikers: mockedUsers.filter((u) =>
-            s.Participants.some((s) => s.idDev === u.id),
+            session.Participants.some((s) => s.idDev === u.id),
           ),
         })),
       );
