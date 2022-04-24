@@ -1,1 +1,1 @@
-export * from './parse-id.pipe';
+export * from './parse-id/parse-id.pipe';
