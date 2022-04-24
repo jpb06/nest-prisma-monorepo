@@ -7,7 +7,7 @@ interface ApiResponse {
   error?: string;
 }
 
-interface BusinessError extends ApiResponse {
+export interface BusinessError extends ApiResponse {
   response?: BusinessError;
 }
 
