@@ -35,7 +35,6 @@ describe('GlobalExceptionFilter class', () => {
       statusCode: 501,
     };
 
-    const filter = new GlobalExceptionFilter();
     filter.catch(exception, host);
 
     expect(console.error).toHaveBeenCalledTimes(0);
