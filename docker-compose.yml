@@ -2,7 +2,7 @@ version: '3'
 
 services:
   postgres:
-    image: postgis/postgis:13-master
+    image: postgis/postgis:15-master
     restart: always
     ports:
       - 5432:5432

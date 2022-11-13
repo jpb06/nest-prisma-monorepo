@@ -1,4 +1,4 @@
-const { pathsToModuleNameMapper } = require('ts-jest');
+const { transformTsPaths } = require('ts-paths-transform');
 
 const {
   compilerOptions: { paths: tsconfigPaths },
@@ -7,14 +7,15 @@ const {
 /** @type {import('@jest/types').Config.InitialOptions} */
 
 module.exports = {
-  moduleNameMapper: {
-    ...pathsToModuleNameMapper(tsconfigPaths, { prefix: '<rootDir>' }),
-  },
+  moduleNameMapper: transformTsPaths(tsconfigPaths, {
+    prefix: '<RootDir>/../../',
+    debug: true,
+  }),
   logHeapUsage: true,
   roots: ['<rootDir>/apps/', '<rootDir>/libs/'],
   testMatch: ['**/?(*.)+(spec|test|e2e).+(ts)'],
   transform: {
-    '^.+\\.(ts)$': 'ts-jest',
+    '^.+\\.(ts)$': '@swc/jest',
   },
   coverageDirectory: './coverage',
   collectCoverageFrom: ['<rootDir>/**/*.ts'],
@@ -32,9 +33,4 @@ module.exports = {
   ],
   setupFiles: ['dotenv-flow/config'],
   testEnvironment: 'node',
-  globals: {
-    'ts-jest': {
-      isolatedModules: true,
-    },
-  },
 };
