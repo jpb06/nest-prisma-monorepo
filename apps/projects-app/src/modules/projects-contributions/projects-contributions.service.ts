@@ -13,10 +13,10 @@ import {
   toArray,
 } from 'rxjs';
 
+import { ProjectContributionsDto } from './dto/project-contributions.response.dto';
 import { ProjectsRepositoryService } from '../databases/repositories/projects-repository.service';
 import { UsersRepositoryService } from '../databases/repositories/users-repository.service';
 import { ContributionSelectType } from '../databases/selects/contributions.select';
-import { ProjectContributionsDto } from './dto/project-contributions.response.dto';
 
 @Injectable()
 export class ProjectsContributionsService {

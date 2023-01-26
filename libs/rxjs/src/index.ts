@@ -1,2 +1,1 @@
-export * from './rxjs.module';
-export * from './rxjs.service';
+export * from './exceptions';
