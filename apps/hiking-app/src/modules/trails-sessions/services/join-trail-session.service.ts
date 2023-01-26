@@ -9,10 +9,10 @@ import {
   notFoundError,
 } from '@libs/rxjs/exceptions';
 
+import { UsersService } from './users.service';
 import { HikingRepositoryService } from '../../databases/repositories/hiking-repository.service';
 import { SessionSelectType } from '../../databases/selects/sessions.select';
 import { TrailSessionResponseDto } from '../dto/trail-session.response.dto';
-import { UsersService } from './users.service';
 
 @Injectable()
 export class JoinTrailSessionService {
