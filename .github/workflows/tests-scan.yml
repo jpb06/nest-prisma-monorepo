@@ -14,12 +14,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.1
+        uses: styfle/cancel-workflow-action@0.11.0
         with:
           access_token: ${{ github.token }}
 
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # Disabling shallow clone is recommended for improving relevancy of reporting
           fetch-depth: 0
@@ -29,7 +29,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Caching node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -38,18 +38,21 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version-file: '.node-version'
 
       - name: Setting yarn version
-        run: yarn policies set-version 1.22.18
+        run: yarn policies set-version 1.22.19
 
       - name: Install dependencies
         run: yarn install --prefer-offline
 
       - name: Linting
         run: yarn lint
+
+      - name: Types check
+        run: yarn type-check
 
       - name: Tests
         run: yarn test:ci
