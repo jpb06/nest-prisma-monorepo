@@ -1,64 +1,123 @@
-name: tests and sonarcloud scan
+name: ⚡ Integration checks
 
 on:
   push:
     branches:
       - main
-
   pull_request:
-    types: [opened, ready_for_review, synchronize, converted_to_draft]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  contents: read
 
 jobs:
-  tests:
+  lint:
+    name: ⬣ ESLint
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
-        with:
-          access_token: ${{ github.token }}
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.1
 
-      - name: Check out repository code
-        uses: actions/checkout@v3
-        with:
-          # Disabling shallow clone is recommended for improving relevancy of reporting
-          fetch-depth: 0
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: 📦 Setup bun
+        uses: oven-sh/setup-bun@v2
 
-      - name: Caching node_modules
-        uses: actions/cache@v3
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Setup node
-        uses: actions/setup-node@v3
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.node-version'
+          # cache: 'bun'
+          cache-dependency-path: ./package.json
 
-      - name: Setting yarn version
-        run: yarn policies set-version 1.22.19
+      - name: 📥 Install deps
+        run: bun install --frozen-lockfile
 
-      - name: Install dependencies
-        run: yarn install --prefer-offline
+      - name: 🔬 Lint
+        run: bun run lint
 
-      - name: Linting
-        run: yarn lint
+  typecheck:
+    name: ʦ TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.1
 
-      - name: Types check
-        run: yarn type-check
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Tests
-        run: yarn test:ci
+      - name: 📦 Setup bun
+        uses: oven-sh/setup-bun@v2
 
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          # cache: 'bun'
+          cache-dependency-path: ./package.json
+
+      - name: 📥 Install deps
+        run: bun install --frozen-lockfile
+
+      - name: 🔎 Type check
+        run: bun run type-check
+
+  test:
+    name: 🎯 Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          # cache: 'bun'
+          cache-dependency-path: ./package.json
+
+      - name: 📥 Install deps
+        run: bun install --frozen-lockfile
+
+      - name: 🧪 Tests
+        run: bun run test:ci
+
+      - name: 💾 Uploading coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lcov
+          path: ./coverage/lcov.info
+
+  sonar:
+    name: 🛰️ Sonar
+    runs-on: ubuntu-latest
+    needs: [lint, typecheck, test]
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 👀 Get coverage artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: lcov
+          path: ./coverage
+
+      - name: 📡 SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
