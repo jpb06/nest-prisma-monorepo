@@ -8,10 +8,8 @@ import { SessionSelectType } from '../../databases/selects/sessions.select';
 
 @Injectable()
 export class UsersService extends UsersRepositoryService {
-  getDistinctUsersin = (
-    sessions: SessionSelectType[],
-  ): Observable<Array<User>> =>
-    of(sessions.map((e) => e.Participants.map((p) => p.idDev)).flat()).pipe(
+  getDistinctUsersin = (sessions: SessionSelectType[]): Observable<User[]> =>
+    of(sessions.flatMap((e) => e.Participants.map((p) => p.idDev))).pipe(
       distinct(),
       mergeMap(this.getBy),
     );
@@ -19,9 +17,7 @@ export class UsersService extends UsersRepositoryService {
   applyUsersTo = (
     session: SessionSelectType,
     users$: Observable<User[]>,
-  ): Observable<
-    Partial<Session> & { trail: Trail | null; hikers: Array<User> }
-  > =>
+  ): Observable<Partial<Session> & { trail: Trail | null; hikers: User[] }> =>
     users$.pipe(
       mergeMap((l) => l),
       filter((u) => session.Participants.some((p) => p.idDev === u.id)),

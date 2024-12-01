@@ -27,7 +27,7 @@ export class ProjectsContributionsService {
 
   getProjectContributions = (
     idProject: number,
-  ): Observable<Array<ProjectContributionsDto>> => {
+  ): Observable<ProjectContributionsDto[]> => {
     const contributions$ = this.projects.getProjectContributions(idProject);
 
     return contributions$.pipe(
@@ -57,7 +57,7 @@ export class ProjectsContributionsService {
 
   private getUsersFor = (
     contributions: ContributionSelectType[],
-  ): Observable<Array<User>> =>
+  ): Observable<User[]> =>
     of(contributions.map((el) => el.idDev))
       .pipe(distinct())
       .pipe(mergeMap(this.users.getBy));

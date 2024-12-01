@@ -8,7 +8,7 @@ import { UsersDatabaseClient } from './users-database.client';
 export class UsersDatabaseService {
   constructor(protected readonly usersDB: UsersDatabaseClient) {}
 
-  getBy = (ids: Array<number>): Observable<User[]> =>
+  getBy = (ids: number[]): Observable<User[]> =>
     from(
       this.usersDB.user.findMany({
         where: {

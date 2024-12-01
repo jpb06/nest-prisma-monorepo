@@ -1,72 +1,72 @@
 {
-  "collection": "@nestjs/schematics",
-  "monorepo": true,
-  "compilerOptions": {
-    "webpack": true
-  },
-  "projects": {
-    "hiking-app": {
-      "type": "application",
-      "root": "apps/hiking-app",
-      "entryFile": "main",
-      "sourceRoot": "apps/hiking-app/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/hiking-app/tsconfig.app.json"
-      }
-    },
-    "projects-app": {
-      "type": "application",
-      "root": "apps/projects-app",
-      "entryFile": "main",
-      "sourceRoot": "apps/projects-app/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/projects-app/tsconfig.app.json"
-      }
-    },
-    "boostraper": {
-      "type": "library",
-      "root": "libs/boostraper",
-      "entryFile": "index",
-      "sourceRoot": "libs/boostraper/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/boostraper/tsconfig.lib.json"
-      }
-    },
-    "databases": {
-      "type": "library",
-      "root": "libs/databases",
-      "entryFile": "index",
-      "sourceRoot": "libs/databases/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/databases/tsconfig.lib.json"
-      }
-    },
-    "decorators": {
-      "type": "library",
-      "root": "libs/decorators",
-      "entryFile": "index",
-      "sourceRoot": "libs/decorators/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/decorators/tsconfig.lib.json"
-      }
-    },
-    "rxjs": {
-      "type": "library",
-      "root": "libs/rxjs",
-      "entryFile": "index",
-      "sourceRoot": "libs/rxjs/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/rxjs/tsconfig.lib.json"
-      }
-    },
-    "tests": {
-      "type": "library",
-      "root": "libs/tests",
-      "entryFile": "index",
-      "sourceRoot": "libs/tests/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/tests/tsconfig.lib.json"
-      }
-    }
-  }
+	"collection": "@nestjs/schematics",
+	"monorepo": true,
+	"compilerOptions": {
+		"webpack": true
+	},
+	"projects": {
+		"hiking-app": {
+			"type": "application",
+			"root": "apps/hiking-app",
+			"entryFile": "main",
+			"sourceRoot": "apps/hiking-app/src",
+			"compilerOptions": {
+				"tsConfigPath": "apps/hiking-app/tsconfig.app.json"
+			}
+		},
+		"projects-app": {
+			"type": "application",
+			"root": "apps/projects-app",
+			"entryFile": "main",
+			"sourceRoot": "apps/projects-app/src",
+			"compilerOptions": {
+				"tsConfigPath": "apps/projects-app/tsconfig.app.json"
+			}
+		},
+		"boostraper": {
+			"type": "library",
+			"root": "libs/boostraper",
+			"entryFile": "index",
+			"sourceRoot": "libs/boostraper/src",
+			"compilerOptions": {
+				"tsConfigPath": "libs/boostraper/tsconfig.lib.json"
+			}
+		},
+		"databases": {
+			"type": "library",
+			"root": "libs/databases",
+			"entryFile": "index",
+			"sourceRoot": "libs/databases/src",
+			"compilerOptions": {
+				"tsConfigPath": "libs/databases/tsconfig.lib.json"
+			}
+		},
+		"decorators": {
+			"type": "library",
+			"root": "libs/decorators",
+			"entryFile": "index",
+			"sourceRoot": "libs/decorators/src",
+			"compilerOptions": {
+				"tsConfigPath": "libs/decorators/tsconfig.lib.json"
+			}
+		},
+		"rxjs": {
+			"type": "library",
+			"root": "libs/rxjs",
+			"entryFile": "index",
+			"sourceRoot": "libs/rxjs/src",
+			"compilerOptions": {
+				"tsConfigPath": "libs/rxjs/tsconfig.lib.json"
+			}
+		},
+		"tests": {
+			"type": "library",
+			"root": "libs/tests",
+			"entryFile": "index",
+			"sourceRoot": "libs/tests/src",
+			"compilerOptions": {
+				"tsConfigPath": "libs/tests/tsconfig.lib.json"
+			}
+		}
+	}
 }

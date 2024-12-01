@@ -45,7 +45,7 @@ export class JoinTrailSessionService {
   private throwIfUserDoesNotExist = (
     idDev: number,
     session: SessionSelectType,
-  ): Observable<{ session: SessionSelectType; users: Array<User> }> =>
+  ): Observable<{ session: SessionSelectType; users: User[] }> =>
     this.users
       .getAll()
       .pipe(

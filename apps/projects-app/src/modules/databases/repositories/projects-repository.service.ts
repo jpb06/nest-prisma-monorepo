@@ -12,7 +12,7 @@ import {
 export class ProjectsRepositoryService extends ProjectsDatabaseService {
   getProjectContributions = (
     idProject: number,
-  ): Observable<Array<ContributionSelectType>> =>
+  ): Observable<ContributionSelectType[]> =>
     from(
       this.projectsDB.contribution.findMany({
         select: contributionsSelect,

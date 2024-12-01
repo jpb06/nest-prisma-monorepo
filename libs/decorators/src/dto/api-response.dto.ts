@@ -5,5 +5,5 @@ export class ApiResponseDto {
   statusCode: number;
 
   @ApiProperty()
-  message: Array<string> | string;
+  message: string[] | string;
 }

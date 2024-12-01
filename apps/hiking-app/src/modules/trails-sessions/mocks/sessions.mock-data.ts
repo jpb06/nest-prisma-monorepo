@@ -1,6 +1,6 @@
 import { SessionSelectType } from '../../databases/selects/sessions.select';
 
-export const mockedsessions: Array<SessionSelectType> = [
+export const mockedsessions: SessionSelectType[] = [
   {
     id: 1,
     date: new Date(2022, 2, 20),

@@ -25,7 +25,7 @@ export class TrailsSessionsController {
       type: [TrailSessionResponseDto],
     },
   })
-  getSessions(): Observable<Array<TrailSessionResponseDto>> {
+  getSessions(): Observable<TrailSessionResponseDto[]> {
     return this.trailsSessions.getSessions();
   }
 

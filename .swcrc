@@ -1,19 +1,19 @@
 {
-  "jsc": {
-    "parser": {
-      "syntax": "typescript",
-      "tsx": false,
-      "decorators": true
-    },
-    "transform": {
-      "legacyDecorator": true,
-      "decoratorMetadata": true
-    },
-    "target": "es2020",
-    "keepClassNames": true
-  },
-  "module": {
-    "type": "commonjs",
-    "noInterop": false
-  }
+	"jsc": {
+		"parser": {
+			"syntax": "typescript",
+			"tsx": false,
+			"decorators": true
+		},
+		"transform": {
+			"legacyDecorator": true,
+			"decoratorMetadata": true
+		},
+		"target": "es2020",
+		"keepClassNames": true
+	},
+	"module": {
+		"type": "commonjs",
+		"noInterop": false
+	}
 }

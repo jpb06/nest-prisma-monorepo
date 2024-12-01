@@ -8,15 +8,14 @@ import { SessionSelectType, sessionsSelect } from '../selects/sessions.select';
 
 @Injectable()
 export class HikingRepositoryService extends HikingDatabaseService {
-  getSessions = (): Observable<Array<SessionSelectType>> =>
+  getSessions = (): Observable<SessionSelectType[]> =>
     from(
       this.hikingDB.session.findMany({
         select: sessionsSelect,
       }),
     );
 
-  getTrails = (): Observable<Array<Trail>> =>
-    from(this.hikingDB.trail.findMany({}));
+  getTrails = (): Observable<Trail[]> => from(this.hikingDB.trail.findMany({}));
 
   getTrailSessionBy = (id: number): Observable<SessionSelectType | null> =>
     from(

@@ -6,5 +6,5 @@ import { UsersDatabaseService } from '@libs/databases';
 
 @Injectable()
 export class UsersRepositoryService extends UsersDatabaseService {
-  getAll = (): Observable<Array<User>> => from(this.usersDB.user.findMany());
+  getAll = (): Observable<User[]> => from(this.usersDB.user.findMany());
 }

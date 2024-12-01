@@ -18,7 +18,7 @@ export class ProjectContributionsDto {
   @Expose()
   @ApiProperty({ isArray: true, type: UserDto })
   @Type(() => UserDto)
-  dev: Array<UserDto>;
+  dev: UserDto[];
 
   @Expose()
   @ApiProperty()

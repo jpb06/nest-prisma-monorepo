@@ -27,7 +27,7 @@ export class ProjectsContributionsController {
       new ParseIdPipe('Expecting an integer as param for trail session id'),
     )
     id: number,
-  ): Observable<Array<ProjectContributionsDto>> {
+  ): Observable<ProjectContributionsDto[]> {
     return this.service.getProjectContributions(id);
   }
 }

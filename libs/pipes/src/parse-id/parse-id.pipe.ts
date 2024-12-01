@@ -1,13 +1,13 @@
 import {
-  Injectable,
   ArgumentMetadata,
-  ParseIntPipe,
   BadRequestException,
+  Injectable,
+  ParseIntPipe,
 } from '@nestjs/common';
 
 @Injectable()
 export class ParseIdPipe extends ParseIntPipe {
-  constructor(private message: string | Array<string>) {
+  constructor(private message: string | string[]) {
     super();
   }
 
@@ -22,7 +22,7 @@ export class ParseIdPipe extends ParseIntPipe {
         });
       }
       return transformed;
-    } catch (err) {
+    } catch (_err) {
       throw new BadRequestException({
         error: 'Bad Request',
         message: this.message,
