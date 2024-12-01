@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/db-users';
 import { plainToInstance } from 'class-transformer';
-import { catchError, map, mergeMap, Observable, of } from 'rxjs';
+import { Observable, catchError, map, mergeMap, of } from 'rxjs';
 
 import {
   conflictError,
@@ -9,10 +9,10 @@ import {
   notFoundError,
 } from '@libs/rxjs/exceptions';
 
-import { UsersService } from './users.service';
 import { HikingRepositoryService } from '../../databases/repositories/hiking-repository.service';
 import { SessionSelectType } from '../../databases/selects/sessions.select';
 import { TrailSessionResponseDto } from '../dto/trail-session.response.dto';
+import { UsersService } from './users.service';
 
 @Injectable()
 export class JoinTrailSessionService {
@@ -37,15 +37,15 @@ export class JoinTrailSessionService {
       ),
     );
 
-  private throwNotFoundIfNo = (
+  private readonly throwNotFoundIfNo = (
     session: SessionSelectType | null,
   ): Observable<SessionSelectType> =>
     session === null ? notFoundError('Session not found') : of(session);
 
-  private throwIfUserDoesNotExist = (
+  private readonly throwIfUserDoesNotExist = (
     idDev: number,
     session: SessionSelectType,
-  ): Observable<{ session: SessionSelectType; users: Array<User> }> =>
+  ): Observable<{ session: SessionSelectType; users: User[] }> =>
     this.users
       .getAll()
       .pipe(
@@ -56,7 +56,7 @@ export class JoinTrailSessionService {
         ),
       );
 
-  private throwIfAlreadyInSession = (
+  private readonly throwIfAlreadyInSession = (
     idDev: number,
     session: SessionSelectType,
   ): Observable<SessionSelectType> =>
@@ -64,7 +64,7 @@ export class JoinTrailSessionService {
       ? conflictError('User already in session')
       : of(session);
 
-  private addUserToSession = (
+  private readonly addUserToSession = (
     session: SessionSelectType,
     idDev: number,
   ): Observable<SessionSelectType> =>

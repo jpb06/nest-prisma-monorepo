@@ -1,7 +1,7 @@
 export const mockApiResponse = (
   statusCode: number,
   error: string,
-  message: Array<string> | string,
+  message: string[] | string,
 ): unknown => ({
   error,
   message,

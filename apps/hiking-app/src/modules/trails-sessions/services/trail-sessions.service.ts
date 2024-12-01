@@ -13,7 +13,7 @@ export class TrailsSessionsService {
     private readonly users: UsersService,
   ) {}
 
-  getSessions = (): Observable<Array<TrailSessionResponseDto>> => {
+  getSessions = (): Observable<TrailSessionResponseDto[]> => {
     const sessions$ = this.hiking.getSessions();
 
     return sessions$.pipe(

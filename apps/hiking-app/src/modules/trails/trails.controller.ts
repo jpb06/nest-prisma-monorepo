@@ -19,7 +19,7 @@ export class TrailController {
       type: [TrailDto],
     },
   })
-  getTrails(): Observable<Array<TrailDto>> {
+  getTrails(): Observable<TrailDto[]> {
     return this.service.getTrails();
   }
 }

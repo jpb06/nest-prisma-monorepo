@@ -1,6 +1,6 @@
 import { Trail } from '@prisma/db-hiking';
 
-export const mockedTrails: Array<Trail> = [
+export const mockedTrails: Trail[] = [
   {
     id: 1,
     name: 'Grand mounier',

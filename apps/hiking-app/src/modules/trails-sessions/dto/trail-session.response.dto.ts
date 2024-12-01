@@ -22,5 +22,5 @@ export class TrailSessionResponseDto {
   @Expose()
   @ApiProperty({ isArray: true, type: UserDto })
   @Type(() => UserDto)
-  hikers: Array<UserDto>;
+  hikers: UserDto[];
 }

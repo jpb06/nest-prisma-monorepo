@@ -3,7 +3,7 @@ import { Session } from '@prisma/db-hiking';
 import { User } from '@prisma/db-users';
 import request from 'supertest';
 
-import { getTestingModule, asDateString } from '@libs/tests';
+import { asDateString, getTestingModule } from '@libs/tests';
 import { mockApiResponse } from '@libs/tests/mocks/api-response.mock';
 
 import { mockedsessions } from './mocks/sessions.mock-data';
@@ -87,7 +87,7 @@ describe('TrailsSessionsController (e2e)', () => {
       const idUser = mockedUsers[0].id;
 
       const { body } = await request(app.getHttpServer())
-        .post(`/trails/sessions/1000/join`)
+        .post('/trails/sessions/1000/join')
         .send({ idDev: idUser })
         .expect(404);
 

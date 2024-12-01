@@ -9,6 +9,6 @@ import { HikingRepositoryService } from '../databases/repositories/hiking-reposi
 export class TrailsService {
   constructor(private readonly hiking: HikingRepositoryService) {}
 
-  getTrails = (): Observable<Array<TrailDto>> =>
+  getTrails = (): Observable<TrailDto[]> =>
     this.hiking.getTrails().pipe(map((o) => plainToInstance(TrailDto, o)));
 }

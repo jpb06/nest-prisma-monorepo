@@ -2,21 +2,21 @@ import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/db-users';
 import { plainToInstance } from 'class-transformer';
 import {
+  Observable,
   distinct,
   from,
   map,
   mergeAll,
   mergeMap,
-  Observable,
   of,
   single,
   toArray,
 } from 'rxjs';
 
-import { ProjectContributionsDto } from './dto/project-contributions.response.dto';
 import { ProjectsRepositoryService } from '../databases/repositories/projects-repository.service';
 import { UsersRepositoryService } from '../databases/repositories/users-repository.service';
 import { ContributionSelectType } from '../databases/selects/contributions.select';
+import { ProjectContributionsDto } from './dto/project-contributions.response.dto';
 
 @Injectable()
 export class ProjectsContributionsService {
@@ -27,7 +27,7 @@ export class ProjectsContributionsService {
 
   getProjectContributions = (
     idProject: number,
-  ): Observable<Array<ProjectContributionsDto>> => {
+  ): Observable<ProjectContributionsDto[]> => {
     const contributions$ = this.projects.getProjectContributions(idProject);
 
     return contributions$.pipe(
@@ -55,9 +55,9 @@ export class ProjectsContributionsService {
     );
   };
 
-  private getUsersFor = (
+  private readonly getUsersFor = (
     contributions: ContributionSelectType[],
-  ): Observable<Array<User>> =>
+  ): Observable<User[]> =>
     of(contributions.map((el) => el.idDev))
       .pipe(distinct())
       .pipe(mergeMap(this.users.getBy));

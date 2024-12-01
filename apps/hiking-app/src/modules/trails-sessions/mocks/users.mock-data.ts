@@ -1,6 +1,6 @@
 import { User } from '@prisma/db-users';
 
-export const mockedUsers: Array<User> = [
+export const mockedUsers: User[] = [
   {
     id: 1,
     name: 'Yolo Bro',
