@@ -7,7 +7,7 @@ import {
 
 @Injectable()
 export class ParseIdPipe extends ParseIntPipe {
-  constructor(private message: string | string[]) {
+  constructor(private readonly message: string | string[]) {
     super();
   }
 
