@@ -1,11 +1,8 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    ":prHourlyLimitNone"
-  ],
-  "schedule": "after 6am and before 6pm",
-  "automerge": false,
-  "rebaseWhen": "conflicted",
-  "semanticCommits": "enabled"
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended", ":prHourlyLimitNone"],
+	"schedule": "after 6am and before 6pm",
+	"automerge": false,
+	"rebaseWhen": "conflicted",
+	"semanticCommits": "enabled"
 }
