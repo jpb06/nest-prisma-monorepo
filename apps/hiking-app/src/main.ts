@@ -1,7 +1,6 @@
 require('dotenv-flow').config({ silent: true });
 
 import { bootstrap } from '@libs/boostraper';
-
 import { AppModule } from './modules/app.module';
 import { externalDatabasesClients } from './modules/databases/external-databases-clients';
 
