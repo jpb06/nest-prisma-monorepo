@@ -83,7 +83,7 @@
 		"webpack": "^5.96.1"
 	},
 	"engines": {
-		"node": "20.x",
+		"node": "22.x",
 		"bun": "1.1.x"
 	},
 	"prisma": {
