@@ -64,7 +64,7 @@
 		"@types/dotenv-flow": "3.3.3",
 		"@types/express": "5.0.2",
 		"@types/jest": "30.0.0",
-		"@types/node": "22.15.21",
+		"@types/node": "22.15.32",
 		"@types/supertest": "6.0.3",
 		"date-fns": "4.1.0",
 		"express": "5.1.0",
