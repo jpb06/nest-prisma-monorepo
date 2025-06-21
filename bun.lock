@@ -31,7 +31,7 @@
         "date-fns": "4.1.0",
         "express": "5.1.0",
         "jest": "30.0.2",
-        "jest-mock-extended": "3.0.7",
+        "jest-mock-extended": "4.0.0",
         "prisma": "6.8.2",
         "readme-package-icons": "1.2.1",
         "rimraf": "6.0.1",
@@ -867,7 +867,7 @@
 
     "jest-mock": ["jest-mock@30.0.2", "", { "dependencies": { "@jest/types": "30.0.1", "@types/node": "*", "jest-util": "30.0.2" } }, "sha512-PnZOHmqup/9cT/y+pXIVbbi8ID6U1XHRmbvR7MvUy4SLqhCbwpkmXhLbsWbGewHrV5x/1bF7YDjs+x24/QSvFA=="],
 
-    "jest-mock-extended": ["jest-mock-extended@3.0.7", "", { "dependencies": { "ts-essentials": "^10.0.0" }, "peerDependencies": { "jest": "^24.0.0 || ^25.0.0 || ^26.0.0 || ^27.0.0 || ^28.0.0 || ^29.0.0", "typescript": "^3.0.0 || ^4.0.0 || ^5.0.0" } }, "sha512-7lsKdLFcW9B9l5NzZ66S/yTQ9k8rFtnwYdCNuRU/81fqDWicNDVhitTSPnrGmNeNm0xyw0JHexEOShrIKRCIRQ=="],
+    "jest-mock-extended": ["jest-mock-extended@4.0.0", "", { "dependencies": { "ts-essentials": "^10.0.2" }, "peerDependencies": { "@jest/globals": "^28.0.0 || ^29.0.0 || ^30.0.0", "jest": "^24.0.0 || ^25.0.0 || ^26.0.0 || ^27.0.0 || ^28.0.0 || ^29.0.0 || ^30.0.0", "typescript": "^3.0.0 || ^4.0.0 || ^5.0.0" } }, "sha512-7BZpfuvLam+/HC+NxifIi9b+5VXj/utUDMPUqrDJehGWVuXPtLS9Jqlob2mJLrI/pg2k1S8DMfKDvEB88QNjaQ=="],
 
     "jest-pnp-resolver": ["jest-pnp-resolver@1.2.3", "", { "peerDependencies": { "jest-resolve": "*" }, "optionalPeers": ["jest-resolve"] }, "sha512-+3NpwQEnRoIBtx4fyhblQDPgJI0H1IEIkX7ShLUjPGA7TtUTvI1oiKi3SR4oBR0hQhQR80l4WAe5RrXBwWMA8w=="],
 
