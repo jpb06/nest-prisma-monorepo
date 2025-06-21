@@ -5,12 +5,12 @@ const {
 } = require('./tsconfig');
 
 /** @type {import('@jest/types').Config.InitialOptions} */
-
 module.exports = {
   moduleNameMapper: transformTsPaths(tsconfigPaths, {
-    prefix: '<RootDir>/../../',
+    prefix: '<rootDir>/',
     debug: true,
   }),
+  rootDir: '.',
   logHeapUsage: true,
   roots: ['<rootDir>/apps/', '<rootDir>/libs/'],
   testMatch: ['**/?(*.)+(spec|test|e2e).+(ts)'],
