@@ -69,7 +69,7 @@
 		"date-fns": "4.1.0",
 		"express": "5.1.0",
 		"jest": "30.0.2",
-		"jest-mock-extended": "3.0.7",
+		"jest-mock-extended": "4.0.0",
 		"prisma": "6.8.2",
 		"readme-package-icons": "1.2.1",
 		"rimraf": "6.0.1",
