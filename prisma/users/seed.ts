@@ -1,6 +1,6 @@
 import { PrismaClient as UsersDb } from '@prisma/db-users';
 
-export const seedUsersDb = async () => {
+const seedUsersDb = async () => {
   const usersDb = new UsersDb();
 
   await usersDb.user.upsert({
@@ -46,3 +46,5 @@ export const seedUsersDb = async () => {
 
   console.info('Users database seeded');
 };
+
+seedUsersDb();

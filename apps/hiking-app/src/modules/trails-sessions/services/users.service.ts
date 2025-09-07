@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Trail, Session } from '@prisma/db-hiking';
+import { Session, Trail } from '@prisma/db-hiking';
 import { User } from '@prisma/db-users';
 import { distinct, filter, map, mergeMap, Observable, of, toArray } from 'rxjs';
 

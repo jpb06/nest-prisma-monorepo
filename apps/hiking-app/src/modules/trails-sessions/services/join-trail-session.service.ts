@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/db-users';
 import { plainToInstance } from 'class-transformer';
-import { Observable, catchError, map, mergeMap, of } from 'rxjs';
+import { catchError, map, mergeMap, Observable, of } from 'rxjs';
 
 import {
   conflictError,
