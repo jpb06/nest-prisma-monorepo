@@ -1,6 +1,6 @@
 import { PrismaClient as HikingDb } from '@prisma/db-hiking';
 
-export const seedHikingDb = async () => {
+const seedHikingDb = async () => {
   const hikingDb = new HikingDb();
 
   await hikingDb.trail.upsert({
@@ -117,3 +117,5 @@ export const seedHikingDb = async () => {
 
   console.info('Hiking database seeded');
 };
+
+seedHikingDb();

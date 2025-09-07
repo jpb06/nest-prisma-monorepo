@@ -2,12 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/db-users';
 import { plainToInstance } from 'class-transformer';
 import {
-  Observable,
   distinct,
   from,
   map,
   mergeAll,
   mergeMap,
+  Observable,
   of,
   single,
   toArray,

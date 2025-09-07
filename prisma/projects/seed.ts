@@ -1,6 +1,6 @@
 import { PrismaClient as ProjectsDb } from '@prisma/db-projects';
 
-export const seedProjectsDb = async () => {
+const seedProjectsDb = async () => {
   const projectsDb = new ProjectsDb();
 
   await projectsDb.project.upsert({
@@ -85,3 +85,5 @@ export const seedProjectsDb = async () => {
 
   console.info('Projects database seeded');
 };
+
+seedProjectsDb();
