@@ -63,7 +63,7 @@
 		"@nestjs/cli": "11.0.10",
 		"@nestjs/schematics": "11.0.7",
 		"@nestjs/testing": "11.1.6",
-		"@swc/core": "1.13.5",
+		"@swc/core": "1.13.20",
 		"@swc/jest": "0.2.39",
 		"@types/dotenv-flow": "3.3.3",
 		"@types/express": "5.0.3",
