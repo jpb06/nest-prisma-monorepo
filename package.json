@@ -68,7 +68,7 @@
 		"@types/dotenv-flow": "3.3.3",
 		"@types/express": "5.0.3",
 		"@types/jest": "30.0.0",
-		"@types/node": "24.5.2",
+		"@types/node": "24.9.2",
 		"@types/supertest": "6.0.3",
 		"date-fns": "4.1.0",
 		"express": "5.1.0",
@@ -87,7 +87,7 @@
 		"webpack": "5.102.1"
 	},
 	"engines": {
-		"node": "22.x",
+		"node": "24.x",
 		"bun": "1.x"
 	}
 }
