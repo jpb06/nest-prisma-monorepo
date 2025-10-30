@@ -66,7 +66,7 @@
 		"@swc/core": "1.14.0",
 		"@swc/jest": "0.2.39",
 		"@types/dotenv-flow": "3.3.3",
-		"@types/express": "5.0.3",
+		"@types/express": "5.0.5",
 		"@types/jest": "30.0.0",
 		"@types/node": "24.5.2",
 		"@types/supertest": "6.0.3",
