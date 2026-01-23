@@ -40,7 +40,7 @@
         "supertest": "7.1.4",
         "ts-loader": "9.5.4",
         "ts-node": "10.9.2",
-        "ts-paths-transform": "2.0.8",
+        "ts-paths-transform": "2.0.23",
         "tsconfig-paths": "4.2.0",
         "typescript": "5.9.3",
         "webpack": "5.103.0",
@@ -1232,7 +1232,7 @@
 
     "ts-node": ["ts-node@10.9.2", "", { "dependencies": { "@cspotcode/source-map-support": "^0.8.0", "@tsconfig/node10": "^1.0.7", "@tsconfig/node12": "^1.0.7", "@tsconfig/node14": "^1.0.0", "@tsconfig/node16": "^1.0.2", "acorn": "^8.4.1", "acorn-walk": "^8.1.1", "arg": "^4.1.0", "create-require": "^1.1.0", "diff": "^4.0.1", "make-error": "^1.1.1", "v8-compile-cache-lib": "^3.0.1", "yn": "3.1.1" }, "peerDependencies": { "@swc/core": ">=1.2.50", "@swc/wasm": ">=1.2.50", "@types/node": "*", "typescript": ">=2.7" }, "optionalPeers": ["@swc/core", "@swc/wasm"], "bin": { "ts-node": "dist/bin.js", "ts-script": "dist/bin-script-deprecated.js", "ts-node-cwd": "dist/bin-cwd.js", "ts-node-esm": "dist/bin-esm.js", "ts-node-script": "dist/bin-script.js", "ts-node-transpile-only": "dist/bin-transpile.js" } }, "sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ=="],
 
-    "ts-paths-transform": ["ts-paths-transform@2.0.8", "", { "dependencies": { "picocolors": "1.1.1", "prettyjson": "1.2.5" } }, "sha512-TOuQIa7h6hkTXF6n/vP9lxnXkeFZ+3HeE73tUl27znaC7/5yoKkEj2knqmzK6f0aw+AK8PFd6m13UJzszIdXKw=="],
+    "ts-paths-transform": ["ts-paths-transform@2.0.23", "", { "dependencies": { "picocolors": "1.1.1", "prettyjson": "1.2.5" } }, "sha512-rVJ/rAQ1TSNj9dyQ4s6okvwDY8U3h4Jf9BdsRRQ4gPNlSAJoVO/lXcV5i3AhVoJGvN3U22VFcLbC/FCmCh8Rag=="],
 
     "tsconfig-paths": ["tsconfig-paths@4.2.0", "", { "dependencies": { "json5": "^2.2.2", "minimist": "^1.2.6", "strip-bom": "^3.0.0" } }, "sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg=="],
 
