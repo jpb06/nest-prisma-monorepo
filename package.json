@@ -84,7 +84,7 @@
 		"ts-paths-transform": "2.0.8",
 		"tsconfig-paths": "4.2.0",
 		"typescript": "5.9.3",
-		"webpack": "5.103.0"
+		"webpack": "5.105.2"
 	},
 	"engines": {
 		"node": "22.x",
