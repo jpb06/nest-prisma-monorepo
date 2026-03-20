@@ -72,7 +72,7 @@
 		"@types/supertest": "7.2.0",
 		"date-fns": "4.1.0",
 		"express": "5.2.1",
-		"jest": "30.2.0",
+		"jest": "30.3.0",
 		"jest-mock-extended": "4.0.0",
 		"prisma": "6.19.2",
 		"readme-package-icons": "1.2.2",
