@@ -46,9 +46,9 @@
 		"sync-icons": "bun generateReadmeIcons -h 50"
 	},
 	"dependencies": {
-		"@nestjs/common": "11.1.16",
-		"@nestjs/core": "11.1.16",
-		"@nestjs/platform-express": "11.1.16",
+		"@nestjs/common": "11.1.17",
+		"@nestjs/core": "11.1.17",
+		"@nestjs/platform-express": "11.1.17",
 		"@nestjs/swagger": "11.2.6",
 		"@prisma/client": "6.19.2",
 		"class-transformer": "0.5.1",
@@ -62,7 +62,7 @@
 		"@biomejs/biome": "2.4.8",
 		"@nestjs/cli": "11.0.16",
 		"@nestjs/schematics": "11.0.9",
-		"@nestjs/testing": "11.1.16",
+		"@nestjs/testing": "11.1.17",
 		"@swc/core": "1.15.18",
 		"@swc/jest": "0.2.39",
 		"@types/dotenv-flow": "3.3.3",
