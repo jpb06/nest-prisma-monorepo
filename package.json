@@ -50,7 +50,7 @@
 		"@nestjs/core": "11.1.16",
 		"@nestjs/platform-express": "11.1.16",
 		"@nestjs/swagger": "11.2.6",
-		"@prisma/client": "6.19.2",
+		"@prisma/client": "7.10.0",
 		"class-transformer": "0.5.1",
 		"class-validator": "0.15.1",
 		"dotenv-flow": "4.1.0",
